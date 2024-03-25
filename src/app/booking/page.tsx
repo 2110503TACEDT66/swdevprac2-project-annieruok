@@ -1,109 +1,98 @@
 'use client'
-import DateReserve from "@/components/DateReserve"
-import { TextField } from "@mui/material"
-import { Dayjs } from "dayjs"
-import { useSearchParams } from "next/navigation"
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { AppDispatch,useAppSelector } from "@/redux/store"
-import { addBooking } from "@/redux/features/bookSlice"
-import BookingList from "@/components/BookingList"
-import dayjs from "dayjs"
+import React, { useState } from 'react';
+import DateReserve from "@/components/DateReserve";
+import { TextField, Button } from "@mui/material";
+import { useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { AppDispatch, useAppSelector } from "@/redux/store";
+import { addBooking } from "@/redux/features/bookSlice";
+import dayjs, { Dayjs } from "dayjs";
 
-export default function Booking(){
-  const startDate = dayjs('2022-05-9 17:00:00');
-  const endDate = dayjs('2022-05-13 23:59:59');
+export default function Booking() {
+  const startDate = dayjs('2022-05-09T17:00:00');
+  const endDate = dayjs('2022-05-13T23:59:59');
 
   const hospitalItems = useAppSelector((state) => state.bookSlice.bookItems);
-    const urlParams = useSearchParams()
-    const hid = urlParams.get('id')
-    const name = urlParams.get('name')
-    const dispatch = useDispatch<AppDispatch>()
+  const urlParams = useSearchParams();
+  const dispatch = useDispatch<AppDispatch>();
 
-    const [bookingDate, setBookingDate] = useState<Dayjs|null>(null);
+  const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingHospital, setBookingHospital] = useState<string>("Chula");
   const [bookingName, setBookingName] = useState<string>('');
   const [bookingLastname, setBookingLastname] = useState<string>('');
   const [citizenId, setCitizenId] = useState<string>('');
 
-    const createBooking = () =>{
-      if(bookingLastname&&citizenId&&bookingName&&bookingDate&&bookingHospital){
-        const item:BookingItem = {
-          name: bookingName,
+  const createBooking = () => {
+    if (bookingLastname && citizenId && bookingName && bookingDate && bookingHospital) {
+      const item = {
+        name: bookingName,
         surname: bookingLastname,
         id: citizenId,
         hospital: bookingHospital,
-        bookDate: bookingDate.toString()
-        }
-        dispatch(addBooking(item))
-      }
+        bookDate: bookingDate.toString(),
+      };
+      dispatch(addBooking(item));
     }
+  };
 
-    return (
-        <main className="w-[100%] flex flex-col items-center space-y-4">
-    <div className="text-xl font-medium">Vaccine Booking</div>
-    <div className="text-xl font-medium">Hospital {name}</div>
-    <div className="w-fit space-y-2">
-    <div>
-        <TextField required
+  return (
+    <main className="w-full flex flex-col items-center space-y-4 my-10">
+      <div className="text-2xl font-medium text-blue-800">Vaccine Booking</div>
+      <div className="text-xl font-medium text-blue-600">Hospital {urlParams.get('name')}</div>
+      <div className="space-y-2 bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+        <TextField
+          required
           id="name"
           name="Name"
           label="Name"
           defaultValue=""
-          variant="standard"
+          variant="outlined"
           onChange={(e) => setBookingName(e.target.value)}
+          className="w-full"
         />
-      </div>
-      <div>
-        <TextField required
+        <TextField
+          required
           id="lastname"
           name="Lastname"
           label="Lastname"
           defaultValue=""
-          variant="standard"
+          variant="outlined"
           onChange={(e) => setBookingLastname(e.target.value)}
+          className="w-full"
         />
-      </div>
-      <div>
-        <TextField required
+        <TextField
+          required
           id="citizen-id"
           name="Citizen ID"
           label="Citizen ID"
           defaultValue=""
-          variant="standard"
+          variant="outlined"
           onChange={(e) => setCitizenId(e.target.value)}
+          className="w-full"
         />
-      </div>
         <div className="text-md text-left text-gray-600 pt-5">
-            Book Date and Companny
+          Book Date and Hospital
         </div>
-        <DateReserve onDateChange={(value:Dayjs)=>{setBookingDate(value)}} onLocationChange={(value:string)=>{setBookingHospital(value)}}/>
-    </div>
-    <button
-  className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 shadow-sm text-white"
-  onClick={() => {
-    if (!bookingDate || bookingDate.isBefore(startDate) || bookingDate.isAfter(endDate)) {
-      alert('Please select a date between May 10th  and May 13th, 2022.');
-      return; // Exit if the selected date is not within the specified range
-    }
-   
-    if (hospitalItems.length >= 3) {
-      alert('Cannot book more than three appointments');
-      return;
-    }
-  
-    else{
-   
-      createBooking();
-    }
-    
-  }}
->
-  Book Appointment
-</button>
-
-
-</main>
-
-    )
+        <DateReserve onDateChange={setBookingDate} onLocationChange={setBookingHospital} />
+        <Button
+          variant="contained"
+          color="primary"
+          className="w-full mt-4"
+          onClick={() => {
+            if (!bookingDate || bookingDate.isBefore(startDate) || bookingDate.isAfter(endDate)) {
+              alert('Please select a date between May 10th and May 13th, 2022.');
+              return;
+            }
+            if (hospitalItems.length >= 3) {
+              alert('Cannot book more than three appointments');
+              return;
+            }
+            createBooking();
+          }}
+        >
+          Book Appointment
+        </Button>
+      </div>
+    </main>
+  );
 }
