@@ -15,20 +15,19 @@ export default function banner(){
 
     return (
         <div className ={styles.banner} onClick={()=>{setIndex(index+1)}}>
-            <Image src={cover[index%4]} alt='cover' fill={true} priority objectFit='contain'/>
+            <Image src={cover[index%4]} alt='cover' fill={true} priority objectFit='cover'/>
             <div className={styles.bannerText}>
-                <h1 className='text-4xl font-bold'>Vaccine Service Center</h1>
-                <h2 className='text-xl font-serif'>Let's get vaccinated! Save yourself, Save your beloved</h2>
+                <h1 className='text-6xl text-white text-right mx-20 font-semibold font-serif'>Welcome to Online <br /> Job Fair Registration</h1>
             </div>
 
             {
                 session? <div className='z-30 absolute top-5 right-10 font-semibold text-cyan-800 text-xl'>Hello {session.user?.name}</div>:null
             }
 
-            <button className='bg-white text-cyan-600 border border-cyan-600 font-semibold py-2 px-2 m-2 rounded 
-            z-30 absolute bottom-0 right-0 hover:bg-cyan-600 hover:text-white hover:border-transparent'
-            onClick={(e)=>{e.stopPropagation(); router.push('/hospital')}}>
-                Select Hospital
+            <button className='bg-white text-cyan-600 border border-cyan-600 font-semibold py-2 px-2 mx-7 my-3 rounded 
+            z-30 absolute bottom-0 left-0 hover:bg-cyan-600 hover:text-white hover:border-transparent'
+            onClick={(e)=>{e.stopPropagation(); router.push('/company')}}>
+                Select Company
             </button>
         </div>
     )

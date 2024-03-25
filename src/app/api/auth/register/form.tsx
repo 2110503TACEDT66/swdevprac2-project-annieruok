@@ -7,6 +7,7 @@ export const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const [formValues, setFormValues] = useState({
     name: "",
+    tel: "",
     email: "",
     password: "",
   });
@@ -15,27 +16,30 @@ export const RegisterForm = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setFormValues({ name: "", email: "", password: "" });
+    setFormValues({ name: "", tel: "", email: "", password: "" });
 
     try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify(formValues),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+        const res = await fetch("https://presentation-day-1-annieruok.vercel.app/api/v1/auth/register", {
+            method: "POST",
+            body: JSON.stringify({ ...formValues, role: "user" }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
       setLoading(false);
       if (!res.ok) {
-        setError((await res.json()).message);
+        const errorData = await res.json();
+        setError(errorData.message || "An error occurred"); // Make sure the message is a string
+        setLoading(false);
         return;
       }
-
+  
       signIn(undefined, { callbackUrl: "/" });
-    } catch (error: any) {
+    } catch (error) {
       setLoading(false);
-      setError(error);
+      // Assuming error is of type any, check if it's an Error object and use its message
+      setError(error instanceof Error ? error.message : String(error));
     }
   };
 
@@ -68,7 +72,7 @@ export const RegisterForm = () => {
           required
           type="tel"
           name="tel"
-          value={formValues.name}
+          value={formValues.tel}
           onChange={handleChange}
           placeholder="Tel-num"
           className={`${input_style}`}

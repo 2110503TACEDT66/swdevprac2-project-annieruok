@@ -5,6 +5,7 @@
     width: 100vw;
     height: 80vh;
     position: relative;
+    background-color: rgb(70, 76, 241);
 }
 .bannerText{
     position: relative;
