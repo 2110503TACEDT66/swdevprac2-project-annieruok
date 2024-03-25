@@ -27,15 +27,6 @@ export default function Card({hospitalName, imgsrc, star, onCompare, onRemove }:
       <div className='w-full h-[15%] p-[10px]'>
         {hospitalName}
       </div>
-      <Rating
-        id={`${hospitalName} Rating`}
-        name={`${hospitalName} Rating`}
-        data-testid={`${hospitalName} Rating`}
-        value={rating}
-        onChange={handleRatingChange}
-        precision={0.5}
-        onClick={(e) => e.stopPropagation()}
-      />
     </InterActiveCard>
     </div>
   );

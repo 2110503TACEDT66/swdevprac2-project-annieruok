@@ -25,9 +25,9 @@ export default async function HospitalDetailPage({params}:{params:{hid:string}})
                 <div>tel: {hospitalDetail.data.tel}</div>
                 <div>__v: {hospitalDetail.data.__v}</div>
                 <div>id: {hospitalDetail.data.id}</div>
-                <Link href={`/reservations?id=${params.hid}&model=${hospitalDetail.data.model}`}>
+                <Link href={`/booking`}>
                     <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm">
-                    Book Vaccine
+                    Book Session
                     </button>
                 </Link>
 
