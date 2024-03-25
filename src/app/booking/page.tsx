@@ -37,8 +37,8 @@ export default function Booking() {
 
   return (
     <main className="w-full flex flex-col items-center space-y-4 my-10">
-      <div className="text-2xl font-medium text-blue-800">Vaccine Booking</div>
-      <div className="text-xl font-medium text-blue-600">Hospital {urlParams.get('name')}</div>
+      <div className="text-2xl font-medium text-blue-800">Appointment Booking</div>
+      <div className="text-xl font-medium text-blue-600">company {urlParams.get('name')}</div>
       <div className="space-y-2 bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
         <TextField
           required
@@ -71,7 +71,7 @@ export default function Booking() {
           className="w-full"
         />
         <div className="text-md text-left text-gray-600 pt-5">
-          Book Date and Hospital
+          Book Date and Company
         </div>
         <DateReserve onDateChange={setBookingDate} onLocationChange={setBookingHospital} />
         <Button
