@@ -22,15 +22,14 @@ export default async function CarDetailPage( {params}:{params:{cid:string}}) {
           // Proceed with reservation if the date is valid
         try {
             const date = addUserForm.get("date") as string || "";
-        if (date > "2022-05-13" || date < "2022-05-10") {
-            throw new Error('Please enter a valid date between May 10, 2022, and May 13, 2022');
-        }
+        if (date <= "2022-05-13" || date >= "2022-05-10") {
             const regis = await reservation(date, profile.data._id, params.cid, session.user.token)
             redirect("/reservations")
+        }
+           
         } catch (error) {
             console.error("Error adding reservation:", error);
-            
-            redirect(`/company/${params.cid}`); // Redirect to company page on error
+            redirect("/reservations"); // Redirect to company page on error
         }
     }
     

@@ -18,8 +18,8 @@ export default function Banner(){
         <div className={styles.banner} onClick={()=>{ setIndex(index+1)}}>
             <Image src={covers[index%1]} alt='cover' fill={true} priority objectFit='cover' />
             <div className={styles.bannerText}>
-                <h1 className='text-8xl font-serif text-white font-bold'> Welcome to</h1>
-                <h1 className='text-8xl font-serif text-white font-bold'> Job-Fair</h1>
+                <h1 className='text-7xl font-serif text-white font-bold text-center '> Welcome to</h1>
+                <h1 className='text-7xl font-serif text-white font-bold text-right mr-20'>Online Job-Fair</h1>
             </div>
             
 
