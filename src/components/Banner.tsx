@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
+import ImageRotator from './ads'
 
 export default function banner(){
     const router = useRouter()
@@ -22,6 +23,8 @@ export default function banner(){
             onClick={(e)=>{router.push('/company')}}>
                 Select Company
             </button>
+           
+
         </div>
     )
 }

@@ -26,6 +26,7 @@ export default function BookingList() {
             >
               Cancel Booking
             </button>
+            
           </div>
         ))}
       </>
