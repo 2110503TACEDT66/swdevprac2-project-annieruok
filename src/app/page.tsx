@@ -5,6 +5,7 @@ import CarCatalog from '@/components/CarCatalog';
 import getCars from "@/libs/getCars"
 import { Suspense } from "react"
 import { LinearProgress } from "@mui/material"
+import ImageRotator from '@/components/ads'
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
               <CarCatalog carJson={cars}/>
             </Suspense>
       </div>
+      <ImageRotator/>
       
     </main>
   );
