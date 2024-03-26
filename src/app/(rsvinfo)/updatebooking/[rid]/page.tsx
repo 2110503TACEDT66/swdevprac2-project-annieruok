@@ -35,8 +35,11 @@ export default async function ReservationDetailPage( {params}:{params:{rid:strin
     
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 pt-20 bg-white ">
+            <h1 className="text-4xl text-black text-center font-mono">Edit your booking date</h1>
+            <br />
             <form className="w-[100%] flex flex-col items-center space-y-4 pt-13 bg-white" action={updateReservationf}>
                     <div className="flex items-center w-1/2 my-2">
+                        
                     <label className="w-auto block text-gray-700 pr-4" htmlFor="date">
                         Date: 
                     </label>
