@@ -1,16 +1,15 @@
-.banner{
+.banner {
     display: block;
     padding: 5px;
     margin: 0;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     position: relative;
-    background-color: rgb(70, 76, 241);
 }
+
 .bannerText{
     position: relative;
-    top: 30px;
+    top: 100px;
     z-index: 20;
     text-align: center;
-    color: darkgreen;
 }

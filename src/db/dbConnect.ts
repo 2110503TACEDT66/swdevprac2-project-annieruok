@@ -1,18 +1,18 @@
-import { error } from "console";
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 let isConnected = false
-export const dbConnect = async() => {
+export const dbConnect = async () => {
     mongoose.set("strictQuery", true)
-    if(isConnected)return
+    if(isConnected) return
 
     const MONGO_URI = process.env.MONGO_URI
-    if(!MONGO_URI)throw new Error("Please define MONGO_URI")
-    try{
+    if(!MONGO_URI) throw new Error("Please define MONGO_URI")
+
+    try {
         await mongoose.connect(MONGO_URI, {bufferCommands: false})
-        isConnected = true 
+        isConnected = true
         console.log("Connected")
-    } catch(env){
+    } catch(error) {
         console.log(error)
     }
 }
