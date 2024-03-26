@@ -35,10 +35,10 @@ export default function AdBlock() {
   return (
     <div style={{
       position: 'fixed',
-      top: '689px', // Set this to 0 or another value if you want the ad at the very top
+      top: '630px', // Set this to 0 or another value if you want the ad at the very top
       left: '1px', // Set this to 0 for the ad to stick to the left side
       width: '300px',
-      height: '210px',
+      height: '390px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
