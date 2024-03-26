@@ -5,7 +5,7 @@ export default async function ReservationCatalog({carJson}:{carJson:object}) {
     const carJsonReady = await carJson
     return (
         <>
-        {carJsonReady.count} Booking
+        {carJsonReady.count} Booking (you can't book more than 3)
         <div style={{margin:"20px", display:"flex", flexDirection:"row" , flexWrap:"wrap", justifyContent:"space-around",alignContent:"space-around"}}>
                 {
                     carJsonReady.data.map((carItem:object)=>(

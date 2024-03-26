@@ -45,6 +45,7 @@ export default async function CarDetailPage( {params}:{params:{cid:string}}) {
             </div>
             <form className="w-[100%] flex flex-col items-center space-y-4 pt-13 bg-white" action={addReservation}>
                 <div className="text-xl p-2">Booker: {profile.data.name}</div>
+                <h3 className="text-gray-700">Date must between 10-05-2022 and 13-05-2022 Otherwise, the system will not make your reservation for you.</h3>
                     <div className="flex items-center w-1/2 my-2">
                     <label className="w-auto block text-gray-700 pr-4" htmlFor="date">
                         Date: 

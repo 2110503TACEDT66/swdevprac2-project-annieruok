@@ -38,6 +38,7 @@ export default async function ReservationDetailPage( {params}:{params:{rid:strin
             <h1 className="text-4xl text-black text-center font-mono">Edit your booking date</h1>
             <br />
             <form className="w-[100%] flex flex-col items-center space-y-4 pt-13 bg-white" action={updateReservationf}>
+                    <h3 className="text-gray-700">Date must between 10-05-2022 and 13-05-2022 Otherwise, the system will not edit your reservation for you.</h3>
                     <div className="flex items-center w-1/2 my-2">
                         
                     <label className="w-auto block text-gray-700 pr-4" htmlFor="date">
