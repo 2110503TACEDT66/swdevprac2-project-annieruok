@@ -50,14 +50,7 @@ export default function CarPanel() {
     return (
         <div>
             <div style={{margin:"20px", display:"flex", flexDirection:"row" , flexWrap:"wrap", justifyContent:"space-around",alignContent:"space-around"}}>
-                {
-                    carResponse.data.map((carItem:object)=>(
-                        <Link href={`/company/${carItem.id}`} className="w-1/5">
-                            <ProductCard carName={carItem.model} imgSrc={carItem.picture} onCompare={(car:string)=>dispatchCompare({type:'add',carName:car})}/>
-                        </Link>
-                       
-                    ))
-                }
+                
                 
             </div>
             <div className="w-full text-xl font-medium">Compare List: { compareList.size}</div>

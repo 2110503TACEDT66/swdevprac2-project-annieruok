@@ -1,9 +1,10 @@
 import InteractiveCard from './InteractiveCard';
 import Image from 'next/image'
 import Link from 'next/link';
+import { CompanyItem } from '../../interfaces';
 
 export default function ReservationCard( {rsvDate,user,restaurant,createdAt,rsvID} : 
-    {rsvDate : string, user: string, restaurant: object, createdAt: string,rsvID:string} ) { 
+    {rsvDate : string, user: string, restaurant: CompanyItem, createdAt: string,rsvID:string} ) { 
     
     return (
         <main>
