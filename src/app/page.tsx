@@ -6,10 +6,11 @@ import getCars from "@/libs/getCars"
 import { Suspense } from "react"
 import { LinearProgress } from "@mui/material"
 import ImageRotator from '@/components/ads'
+import { CompanyJson } from '../../interfaces';
 
 
-export default function Home() {
-  const cars = getCars()
+export default async function Home() {
+  const cars:CompanyJson = await getCars()
   return (
     <main>
       <Banner/>
