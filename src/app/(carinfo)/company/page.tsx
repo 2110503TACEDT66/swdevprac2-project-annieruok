@@ -2,7 +2,6 @@ import getCars from "@/libs/getCars"
 import CarCatalog from "@/components/CarCatalog"
 import { Suspense } from "react"
 import { LinearProgress } from "@mui/material"
-import CarPanel from "@/components/CarPanel"
 import { CompanyJson } from "../../../../interfaces"
 
 export default async function Car() {

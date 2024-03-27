@@ -1,6 +1,6 @@
 import getCar from "@/libs/getCar"
 import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { authOptions } from "@/libs/auth"
 import getUserProfile from "@/libs/getUserProfile"
 import { redirect } from "next/navigation"
 import updateReservation  from "@/libs/updateReservation"

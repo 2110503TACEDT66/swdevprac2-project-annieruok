@@ -1,6 +1,5 @@
 
 import Banner from '@/components/Banner'
-import { TravelCard } from "@/components/TravelCard";
 import CarCatalog from '@/components/CarCatalog';
 import getCars from "@/libs/getCars"
 import { Suspense } from "react"
