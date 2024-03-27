@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { authOptions } from "@/libs/auth"
 import getUserProfile from "@/libs/getUserProfile"
 import { redirect } from "next/navigation"
 import getReservationID from "@/libs/getReservationID"

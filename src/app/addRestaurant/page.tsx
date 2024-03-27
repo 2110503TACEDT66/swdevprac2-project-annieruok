@@ -3,7 +3,7 @@ import register from "@/libs/register"
 import postRestaurant from "@/libs/postRestaurant"
 import { getServerSession } from "next-auth"
 import getUserProfile from "@/libs/getUserProfile"
-import { authOptions } from "../api/auth/[...nextauth]/route"
+import { authOptions } from "@/libs/auth"
 
 export default async function RegisterPage() {
     const session = await getServerSession(authOptions)
