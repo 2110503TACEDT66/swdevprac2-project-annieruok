@@ -18,9 +18,9 @@ export const cartSlice = createSlice({
         removeReservation: (state,action:PayloadAction<ReservationItem>)=>{
 
             const remainItems = state.carItem.filter( obj =>{
-                return ((obj.carModel !== action.payload.carModel)
-                ||(obj.pickupDate !== action.payload.pickupDate)
-                ||(obj.returnDate !== action.payload.returnDate))
+                return ((obj.bookDate !== action.payload.bookDate)
+                ||(obj.company !== action.payload.company)
+                ||(obj.createdAt !== action.payload.createdAt))
             })
             state.carItem = remainItems
         }
